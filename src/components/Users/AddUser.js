@@ -8,8 +8,17 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    if (enteredAge < 1 || enteredUsername.length === 0) return;
+    if (enteredAge.trim().length === 0 || enteredUsername.trim().length === 0)
+      return;
+    if (+enteredAge < 1) {
+      return;
+    }
     console.log(enteredUsername, enteredAge);
+    props.onAddUser({
+      id: Math.random() * 100,
+      name: enteredUsername,
+      age: enteredAge,
+    });
     setEnteredUsername('');
     setEnteredAge('');
   };
