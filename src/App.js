@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import AddUser from './components/Users/AddUser';
 import UsersList from './components/Users/UsersList';
 
@@ -10,10 +10,16 @@ function App() {
     });
   };
   return (
-    <div>
+    // <>
+    //   <AddUser onAddUser={addUserHandler} />
+    //   <UsersList users={usersList} />
+    // </>
+
+    // if <> </> diesn't work use React.Fragment or import Fragment from react and use as below
+    <Fragment>
       <AddUser onAddUser={addUserHandler} />
       <UsersList users={usersList} />
-    </div>
+    </Fragment>
   );
 }
 
